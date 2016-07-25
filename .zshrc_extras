@@ -34,6 +34,6 @@ function search_history {
 
 export HISTTIMEFORMAT="%d/%m/%y %T "
 
-infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
-tic $TERM.ti
+infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > /tmp/$TERM.ti
+tic /tmp/$TERM.ti
 alias vim='nvim'

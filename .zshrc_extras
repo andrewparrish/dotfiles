@@ -1,0 +1,38 @@
+alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
+alias todo='sh /usr/local/Cellar/todo-txt/2.10/bin/todo.sh'
+alias post='cd ~/Documents/Development/Tasks/Post/jibe-post'
+alias worker='ssh postproddeploy@worker4.jibepost.com'
+alias search='search_history'
+# ls by last modified date
+alias lt='ll -tr'
+alias catchup='git fetch && git pull'
+alias gitfix='git diff --name-only | uniq | xargs $EDITOR'
+alias hist='search_history'
+alias vin='vagrant ssh && cd /vagrant'
+
+export RUBY_GC_MALLOC_LIMIT=1000000000
+export RUBY_FREE_MIN=500000
+export RUBY_HEAP_MIN_SLOTS=40000
+
+function csv_read {
+  cat "$1" | sed -e 's/,,/, ,/g' | column -s, -t 
+}
+
+function sshit {
+  ssh postproddeploy@$1.jibepost.com
+}
+
+function grab_error_html {
+  scp $1 ~/Documents/Development/tests_and_notes/cl_failures/$2 && open ~/Documents/Development/tests_and_notes/cl_failures/$2
+}
+
+function search_history {
+  history | grep -i "$1"
+}
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+export HISTTIMEFORMAT="%d/%m/%y %T "
+
+infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
+tic $TERM.ti

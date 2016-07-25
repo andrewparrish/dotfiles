@@ -1,7 +1,7 @@
 syntax enable
 colorscheme molokai
 set background=dark
-
+"comment
 set mouse=a
 set autoread
 "set tabstop=2
@@ -68,6 +68,7 @@ Plugin 'elzr/vim-json'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'pangloss/vim-javascript'
 Plugin 'chrisbra/improvedft'
+Plugin 'scrooloose/nerdcommenter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

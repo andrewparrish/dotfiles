@@ -15,6 +15,9 @@ set showcmd
 set cursorline
 set showmatch
 
+highlight ColorColumn ctermbg=blue
+call matchadd('ColorColumn', '\%81v', 100)
+
 " ======VUNDLE STUFF===========
 set nocompatible              " be iMproved, required
 filetype off                  " required

@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/andrewparrish/Documents/Development/Tasks/Analytics/kenexa_ra_client/.git'
+let g:netrw_dirhist_2='/Users/andrewparrish/Documents/Development/Tasks/Analytics/virtualedge_ra_client/.git'
+let g:netrw_dirhist_3='/Users/andrewparrish/Documents/Development/Tasks/Analytics/hiring_funnel_connectors/lib/hiring_funnel_connectors'
+let g:netrw_dirhist_4='/Users/andrewparrish/Documents/Development/Tasks/Analytics/hiring_funnel_connectors/lib'

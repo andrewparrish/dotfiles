@@ -15,17 +15,7 @@ set showcmd
 set cursorline
 set showmatch
 
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-
-vmap <C-f> y0/<C-r>"<Enter>cgn
-nnoremap <Leader>n :bn<CR>
-nnoremap <Leader>p :bp<CR>
-nnoremap <Leader>b :ls<CR>:b<Space>
-
-"======VUNDLE STUFF===========
+" ======VUNDLE STUFF===========
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -149,3 +139,16 @@ nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
+
+"====Custom Hotkeys========
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+vmap <C-f> y0/<C-r>"<Enter>cgn
+nnoremap <Leader>n :bn<CR>
+nnoremap <Leader>p :bp<CR>
+nnoremap <Leader>b :ls<CR>:b<Space>
+"autocmd filetype javascript setlocal nmap <Leader>cl yiwoconsole.log('<c-r>"', <c-r>");<Esc>^
+"autocmd filetype ruby setlocal imap <Leader>cl yiwoputs(<c-r>")<Esc>^

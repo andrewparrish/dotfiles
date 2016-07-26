@@ -20,6 +20,9 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+vmap <C-f> y0/<C-r>"<Enter>cgn
+nnoremap <Leader>n :bn<CR>
+nnoremap <Leader>p :bp<CR>
 "======VUNDLE STUFF===========
 set nocompatible              " be iMproved, required
 filetype off                  " required

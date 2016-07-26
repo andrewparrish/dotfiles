@@ -95,7 +95,7 @@ map <C-n> :NERDTreeToggle<CR>
 
 "========Tab Stuff==================
 nmap <F8> :TagbarToggle<CR>
-
+map <C-`> :bnext <Enter>
 "========POWERLINE STUFFS============
 set guifont=Inconsolata\ for\ Powerline:h14
 let g:Powerline_symbols = 'fancy'
@@ -112,7 +112,6 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_section_b = '%{strftime("%c")}'
 let g:airline#extensions#whitespace#enabled = 0
-set ttimeoutlen=10
 
 if ! has('gui_running')
   set ttimeoutlen=10
@@ -130,11 +129,13 @@ if has("gui_running")
     endif
 endif
 autocmd FileType ruby setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType javascript setlocal expandtab shiftwidth=2 softtabstop=2
 set laststatus=2
 "======Ctrl P========================
 let g:ctrlp_working_path_mode = 'ra'
-"======Vroom
+set wildignore+=*/tmp/*,*.so,*.swp,*/node_modules/*,"node_modules/*"
 
+"======Vroom
 
 "===== Vimtest
 let test#strategy = "vimux"

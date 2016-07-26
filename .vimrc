@@ -15,12 +15,10 @@ set showcmd
 set cursorline
 set showmatch
 
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+highlight ColorColumn ctermbg=blue
+call matchadd('ColorColumn', '\%81v', 100)
 
-"======VUNDLE STUFF===========
+" ======VUNDLE STUFF===========
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -99,11 +97,11 @@ map <C-`> :bnext <Enter>
 "========POWERLINE STUFFS============
 set guifont=Inconsolata\ for\ Powerline:h14
 let g:Powerline_symbols = 'fancy'
-set encoding=utf-8
+"set encoding=utf-8
 set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
 "set term=xterm-256color
-set termencoding=utf-8
+"set termencoding=utf-8
 set t_ut=
 
 "====Airline stuff
@@ -114,7 +112,7 @@ let g:airline_section_b = '%{strftime("%c")}'
 let g:airline#extensions#whitespace#enabled = 0
 
 if ! has('gui_running')
-  set ttimeoutlen=10
+  set ttimeoutlen=0
   augroup FastEscape
     autocmd!
     au InsertEnter * set timeoutlen=0
@@ -139,4 +137,23 @@ set wildignore+=*/tmp/*,*.so,*.swp,*/node_modules/*,"node_modules/*"
 
 "===== Vimtest
 let test#strategy = "vimux"
+let test#ruby#minitest#file_pattern = 'test/.*\.rb'
 
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
+
+"====Custom Hotkeys========
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+vmap <C-f> y0/<C-r>"<Enter>cgn
+nnoremap <Leader>n :bn<CR>
+nnoremap <Leader>p :bp<CR>
+nnoremap <Leader>b :ls<CR>:b<Space>
+"autocmd filetype javascript setlocal nmap <Leader>cl yiwoconsole.log('<c-r>"', <c-r>");<Esc>^
+"autocmd filetype ruby setlocal imap <Leader>cl yiwoputs(<c-r>")<Esc>^

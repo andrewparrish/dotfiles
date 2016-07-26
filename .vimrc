@@ -99,11 +99,11 @@ nmap <F8> :TagbarToggle<CR>
 "========POWERLINE STUFFS============
 set guifont=Inconsolata\ for\ Powerline:h14
 let g:Powerline_symbols = 'fancy'
-set encoding=utf-8
+"set encoding=utf-8
 set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
 "set term=xterm-256color
-set termencoding=utf-8
+"set termencoding=utf-8
 set t_ut=
 
 "====Airline stuff
@@ -112,10 +112,9 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_section_b = '%{strftime("%c")}'
 let g:airline#extensions#whitespace#enabled = 0
-set ttimeoutlen=10
 
 if ! has('gui_running')
-  set ttimeoutlen=10
+  set ttimeoutlen=0
   augroup FastEscape
     autocmd!
     au InsertEnter * set timeoutlen=0

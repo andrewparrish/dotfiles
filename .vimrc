@@ -155,3 +155,5 @@ nnoremap <Leader>p :bp<CR>
 nnoremap <Leader>b :ls<CR>:b<Space>
 "autocmd filetype javascript setlocal nmap <Leader>cl yiwoconsole.log('<c-r>"', <c-r>");<Esc>^
 "autocmd filetype ruby setlocal imap <Leader>cl yiwoputs(<c-r>")<Esc>^
+
+nnoremap <Leader>` :noh<CR>

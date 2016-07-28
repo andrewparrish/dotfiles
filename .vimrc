@@ -69,6 +69,7 @@ Plugin 'chrisbra/improvedft'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'scrooloose/syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -157,3 +158,16 @@ nnoremap <Leader>b :ls<CR>:b<Space>
 "autocmd filetype ruby setlocal imap <Leader>cl yiwoputs(<c-r>")<Esc>^
 
 nnoremap <Leader>` :noh<CR>
+nnoremap <Leader>nt :tabedit %<CR>
+
+"=====Syntastic Settings=====
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+

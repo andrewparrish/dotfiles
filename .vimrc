@@ -70,7 +70,12 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/syntastic'
-
+Plugin 'https://github.com/leafgarland/typescript-vim.git'
+Plugin 'Quramy/vim-js-pretty-template'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Quramy/tsuquyomi'
+Plugin 'jiangmiao/auto-pairs'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -161,6 +166,7 @@ nnoremap <Leader>b :ls<CR>:b<Space>
 
 nnoremap <Leader>` :noh<CR>
 nnoremap <Leader>nt :tabedit %<CR>
+nnoremap <Leader>gtd :TsuTypeDefinition<CR>
 
 "=====Syntastic Settings=====
 set statusline+=%#warningmsg#
@@ -173,3 +179,11 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 
+"=====Typescript Setting"
+let g:typescript_compiler_binary = 'tsc'
+let g:typescript_compiler_options = ''
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
+
+autocmd FileType typescript JsPreTmpl html
+autocmd FileType typescript syn clear foldBraces

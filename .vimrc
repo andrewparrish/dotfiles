@@ -72,10 +72,12 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/syntastic'
 Plugin 'https://github.com/leafgarland/typescript-vim.git'
 Plugin 'Quramy/vim-js-pretty-template'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Quramy/tsuquyomi'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'tpope/vim-rails'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'ryanoasis/vim-devicons'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -101,7 +103,8 @@ map <C-n> :NERDTreeToggle<CR>
 nmap <F8> :TagbarToggle<CR>
 map <C-`> :bnext <Enter>
 "========POWERLINE STUFFS============
-set guifont=Inconsolata\ for\ Powerline:h14
+set guifont=Fantasque\ Sans\ Mono:h11
+set guioptions=
 let g:Powerline_symbols = 'fancy'
 "set encoding=utf-8
 set t_Co=256
@@ -129,21 +132,25 @@ endif
 if has("gui_running")
     let s:uname = system("uname")
     if s:uname == "Darwin\n"
-        set guifont=Inconsolata\ for\ Powerline:h14
+        "set guifont=Inconsolata\ for\ Powerline:h14
+        set guifont=Fantasque\ Sans\ Mono:h14
     endif
 endif
 autocmd FileType ruby setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType javascript setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType yaml setlocal expandtab shiftwidth=2 softtabstop=2
 set laststatus=2
 "======Ctrl P========================
 let g:ctrlp_working_path_mode = 'ra'
-set wildignore+=*/tmp/*,*.so,*.swp,*/node_modules/*,"node_modules/*"
+"let g:ctrlp_working_path_mode = 0
+set wildignore+=*/tmp/*,*.so,*.swp,*/node_modules/*,*/vendor/*
 
 "======Vroom
 
 "===== Vimtest
 let test#strategy = "vimux"
 let test#ruby#minitest#file_pattern = 'test/.*\.rb'
+let test#ruby#rspec#executable = 'rspec'
 
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
@@ -161,6 +168,7 @@ vmap <C-f> y0/<C-r>"<Enter>cgn
 nnoremap <Leader>n :bn<CR>
 nnoremap <Leader>p :bp<CR>
 nnoremap <Leader>b :ls<CR>:b<Space>
+nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 "autocmd filetype javascript setlocal nmap <Leader>cl yiwoconsole.log('<c-r>"', <c-r>");<Esc>^
 "autocmd filetype ruby setlocal imap <Leader>cl yiwoputs(<c-r>")<Esc>^
 
@@ -177,6 +185,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_typescript_checkers = ['tslint']
+let g:syntastic_ignore_files = ['\.spec\.ts', '\.html']
 
 
 "=====Typescript Setting"

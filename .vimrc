@@ -1,11 +1,9 @@
+" Basic Settings
 syntax enable
 colorscheme molokai
 set background=dark
-"comment
 set mouse=a
 set autoread
-"set tabstop=2
-"set softtabstop=2
 set expandtab
 set smartindent
 set tabstop=2 softtabstop=0 expandtab shiftwidth=4 smarttab
@@ -14,6 +12,11 @@ set number
 set showcmd
 set cursorline
 set showmatch
+set laststatus=2
+
+set backup
+set backupdir=~/.vim/backup
+set directory=~/.vim/tmp
 
 highlight ColorColumn ctermbg=blue
 call matchadd('ColorColumn', '\%81v', 100)
@@ -78,6 +81,11 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-rails'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'ryanoasis/vim-devicons'
+"
+" Window Management
+"
+Plugin 'ZoomWin'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -136,21 +144,25 @@ if has("gui_running")
         set guifont=Fantasque\ Sans\ Mono:h14
     endif
 endif
+
+" Filetype-specific overrides
+autocmd FileType javascript setlocal nosmartindent
 autocmd FileType ruby setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType javascript setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType yaml setlocal expandtab shiftwidth=2 softtabstop=2
-set laststatus=2
+autocmd FileType typescript setlocal expandtab shiftwidth=2 softtabstop=2
+
 "======Ctrl P========================
 let g:ctrlp_working_path_mode = 'ra'
 "let g:ctrlp_working_path_mode = 0
 set wildignore+=*/tmp/*,*.so,*.swp,*/node_modules/*,*/vendor/*
 
-"======Vroom
-
 "===== Vimtest
 let test#strategy = "vimux"
 let test#ruby#minitest#file_pattern = 'test/.*\.rb'
 let test#ruby#rspec#executable = 'rspec'
+let g:test#javascript#jest#file_pattern = '\v(__tests__/.*|(spec|test))\.(js|jsx|coffee|ts|tsx)$'
+let g:test#javascript#jest#executable = 'jest'
 
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>

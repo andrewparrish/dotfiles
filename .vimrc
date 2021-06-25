@@ -133,9 +133,11 @@ if ! has('gui_running')
   augroup FastEscape
     autocmd!
     au InsertEnter * set timeoutlen=0
-    au InsertLeave * set timeoutlen=1000
+    au InsertLeave * set timeoutlen=50
   augroup END
 endif
+
+"set timeoutlen=1000 ttimeoutlen=0
 
 if has("gui_running")
     let s:uname = system("uname")
@@ -187,6 +189,7 @@ nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 nnoremap <Leader>` :noh<CR>
 nnoremap <Leader>nt :tabedit %<CR>
 nnoremap <Leader>gtd :TsuTypeDefinition<CR>
+nnoremap <Leader>imp :TsuImport<CR>
 
 "=====Syntastic Settings=====
 set statusline+=%#warningmsg#
@@ -209,3 +212,6 @@ autocmd QuickFixCmdPost    l* nested lwindow
 
 autocmd FileType typescript JsPreTmpl html
 autocmd FileType typescript syn clear foldBraces
+
+"===TsuImport Settings"
+:let g:tsuquyomi_single_quote_import=1
